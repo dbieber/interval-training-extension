@@ -2,7 +2,9 @@
 
 ### Usage
 
-Navigate to http://www.musictheory.net/exercises/ear-interval for some ear training interval exercises.
+Install the Chrome extension.
+
+Then, navigate to http://www.musictheory.net/exercises/ear-interval for some ear training interval exercises.
 
 Press ENTER to hear the interval again.
 Press 1 to select Unison.
@@ -19,9 +21,9 @@ Press Down-7 to select Minor Seventh.
 Press 7 to select Major Seventh.
 Press 8 to select Octave.
 
-### Instructions for Developers:
+## Instructions for Developers
 
-This Chrome extension is based off of the template available at git@github.com:salsita/chrome-extension-skeleton.git.
+This Chrome extension is based off of the template available at https://github.com/salsita/chrome-extension-skeleton.
 
 I've included the relevant instructions for developers from the template project here.
 
