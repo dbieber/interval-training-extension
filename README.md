@@ -1,14 +1,33 @@
-## Skeleton for Google Chrome extensions
 
-* includes awesome messaging module
-* grunt-based build system
-* node.js modules
-* unit-tests in mocha
-* CircleCI friendly
+
+### Usage
+
+Navigate to http://www.musictheory.net/exercises/ear-interval for some ear training interval exercises.
+
+Press ENTER to hear the interval again.
+Press 1 to select Unison.
+Press Down-2 to select Minor Second.
+Press 2 to select Major Second.
+Press Down-3 to select Minor Third.
+Press 3 to select Major Third.
+Press 4 to select Perfect Fourth.
+Press Down-5 to select Tritone.
+Press 5 to select Perfect Fifth.
+Press Down-6 to select Minor Sixth.
+Press 6 to select Major Sixth.
+Press Down-7 to select Minor Seventh.
+Press 7 to select Major Seventh.
+Press 8 to select Octave.
+
+### Instructions for Developers:
+
+This Chrome extension is based off of the template available at git@github.com:salsita/chrome-extension-skeleton.git.
+
+I've included the relevant instructions for developers from the template project here.
 
 ### Installation:
 
-    git clone git@github.com:salsita/chrome-extension-skeleton.git
+    git clone git@github.com:dbieber/interval-training-extension.git
     
     # in case you don't have Grunt yet:
     sudo npm install -g grunt-cli
@@ -21,15 +40,12 @@
 
 ### Directory structure:
 
-    /build             # this is where your extension (.crx) will end up,
+    /build             # this is where the extension (.crx) ends up,
                        # along with unpacked directories of production and
                        # develop build (for debugging)
     
     /code
-        /css           # CSS files
-        /html          # HTML files
         /images        # image resources
-    
         /js            # entry-points for browserify, requiring node.js `modules`
     
             /libs      # 3rd party run-time libraries, excluded from JS-linting
@@ -58,52 +74,13 @@
 
 ### After you clone:
 
-1. In `package.json`, rename the project, description, version, add dependencies
-and any other fields necessary.
+1. Generate your .pem key and store it in the root as `mykey.pem` file. On unix / mac, the command to generate the file is `openssl genrsa 2048 | openssl pkcs8 -topk8 -nocrypt > mykey.pem`.
+Note: the generated file is in `.gitignore` file, it won't be (and should NOT be) commited to the repository.
 
-2. Generate your .pem key and store it in the root as `mykey.pem` file. On
-unix / mac, the command to generate the file is
-`openssl genrsa 2048 | openssl pkcs8 -topk8 -nocrypt > mykey.pem`.
-Note: the generated file is in `.gitignore` file, it won't be (and should NOT
-be) commited to the repository unless you know what you are doing.
+2. Add content, updating `code/manifest.json` accordingly.
 
-3. Add content (HTML, CSS, images, JS modules), update `code/manifest.json`,
-leave only JS entry-points you use (remove the ones you don't need).
+3. When developing, write unit-tests, use `test-cont` Grunt task to check that your JS code passes linting tests and unit-tests.
 
-4. When developing, write unit-tests, use `test-cont` Grunt task to check that
-your JS code passes linting tests and unit-tests.
-
-5. When ready to try out the extension in the browser, use default Grunt task to
-build it. In `build` directory you'll find develop version of the extension in
-`unpacked-dev` subdirectory (with source maps), and production (uglified)
+4. When ready to try out the extension in the browser, use default Grunt task to build it. In `build` directory you'll find develop version of the extension in `unpacked-dev` subdirectory (with source maps), and production (uglified)
 version in `unpacked-prod` directory. The `.crx` packed version is created from
 `unpacked-prod` sources.
-
-6. When done developing, publish the extension and enjoy it (profit!).
-
-Use any 3rd party libraries you need (both for run-time and for development /
-testing), place them either to `code/js/libs`, in case the library is not an npm
-module, or use regular npm node.js modules (that will be installed into
-`node_modules` directory). These libraries will be encapsulated in the resulting
-code and will NOT conflict even with libraries on pages where you inject the
-resulting JS scripts to (for content scripts).
-
-For more information, please check also README.md files in subdirectories.
-
-### Under the hood:
-
-If you want to understand better the structure of the code and how it really
-works, please check the following sources:
-
-* [introductory blog post](https://blog.javascripting.com/2014/06/18/the-chrome-extension-skeleton-building-modular-extensions-with-grunt-and-browserify/),
-* [blog post on messaging system](https://blog.javascripting.com/2014/08/11/the-chrome-extension-skeleton-messaging-system/),
-* or this [overall prezi](http://prezi.com/yxj7zs7ixlmw/chrome-extension-skeleton/).
-
-### Legacy version
-
-Before this version of the skeleton, we used [RequireJS](http://requirejs.org/)
-modules, [jasmine-based](http://jasmine.github.io/) unit tests and older
-`chrome.extension.{onMessage|sendMessage}` API for message exchange between
-background and content scripts. This version is still available in
-[legacy](https://github.com/salsita/chrome-extension-skeleton/tree/legacy)
-branch here.

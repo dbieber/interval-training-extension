@@ -1,7 +1,7 @@
 {
-  "name": "extension-skeleton",
+  "name": "interval-training-assistant",
   "version": "0.1.2",
-  "description": "Bare Google Chrome extension skeleton.",
+  "description": "Interval Training Assistant extends the ear training functionality available at http://www.musictheory.net/exercises/ear-interval to give you a better ear training experience.",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.5",
